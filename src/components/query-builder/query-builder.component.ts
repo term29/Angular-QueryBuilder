@@ -515,6 +515,10 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
       return;
     }
 
+    // JCD fixes model's sticky prior field value for fields
+    // in different entities having the same name.
+    rule.field = fieldValue;
+
     const field: Field = this.config.fields[fieldValue];
 
     if (field && field.defaultValue !== undefined) {
